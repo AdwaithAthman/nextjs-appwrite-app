@@ -49,7 +49,7 @@ class AppwriteService {
 
     async isLoggedIn(): Promise<boolean> {
         try{
-            const data = this.getCurrentUser();
+            const data = await this.getCurrentUser();
             return Boolean(data);
         }
         catch(error){};
@@ -58,7 +58,7 @@ class AppwriteService {
 
     async getCurrentUser(){
         try{
-            return await account.get();
+            return account.get();
         }
         catch(error){
             console.log("getCurrentUser error: ", error);
